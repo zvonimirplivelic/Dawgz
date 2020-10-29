@@ -39,7 +39,7 @@ class DogListFragment : Fragment() {
             dogsList.visibility = View.GONE
             listError.visibility = View.GONE
             loadingView.visibility = View.VISIBLE
-            dogListViewModel.refresh()
+            dogListViewModel.refreshBypassCache()
             refreshLayout.isRefreshing = false
         }
 
