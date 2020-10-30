@@ -17,4 +17,5 @@ abstract class DogBaseViewModel(application: Application): AndroidViewModel(appl
         super.onCleared()
         job.cancel()
     }
+
 }

@@ -13,6 +13,9 @@
             app:destination="@id/dogDetailFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim" />
+        <action
+            android:id="@+id/actionSettingsFragment"
+            app:destination="@id/settingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/dogDetailFragment"
@@ -27,5 +30,13 @@
             android:name="dogUuid"
             android:defaultValue="0"
             app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.zvonimirplivelic.dawgz.view.SettingsFragment"
+        android:label="SettingsFragment" >
+        <action
+            android:id="@+id/actionSettingsToListFragment"
+            app:destination="@id/dogListFragment" />
     </fragment>
 </navigation>
