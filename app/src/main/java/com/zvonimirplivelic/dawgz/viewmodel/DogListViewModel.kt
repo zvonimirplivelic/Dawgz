@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import com.zvonimirplivelic.dawgz.database.DogDatabase
 import com.zvonimirplivelic.dawgz.model.DogBreed
 import com.zvonimirplivelic.dawgz.remote.DogsRetrofitInstance
+import com.zvonimirplivelic.dawgz.util.NotificationsHelper
 import com.zvonimirplivelic.dawgz.util.SharedPreferencesHelper
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -61,6 +62,7 @@ class DogListViewModel(application: Application) : DogBaseViewModel(application)
                     override fun onSuccess(dogList: List<DogBreed>?) {
                         storeDogsLocally(dogList!!)
                         Toast.makeText(getApplication(), "Dogs retrieved from endpoint", Toast.LENGTH_SHORT).show()
+                        NotificationsHelper(getApplication()).createNotification()
                     }
 
                     override fun onError(e: Throwable?) {
