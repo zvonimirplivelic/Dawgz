@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.zvonimirplivelic.dawgz.MainActivity
 import com.zvonimirplivelic.dawgz.R
 import com.zvonimirplivelic.dawgz.viewmodel.DogListViewModel
 import kotlinx.android.synthetic.main.fragment_dog_list.*
@@ -20,8 +21,8 @@ class DogListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         setHasOptionsMenu(true)
-        return inflater.inflate(R.layout.fragment_dog_list, container, false)
 
+        return inflater.inflate(R.layout.fragment_dog_list, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -29,6 +30,8 @@ class DogListFragment : Fragment() {
 
         dogListViewModel = ViewModelProviders.of(this).get(DogListViewModel::class.java)
         dogListViewModel.refresh()
+
+        (activity as MainActivity).setActionBarTitle(getString(R.string.app_name))
 
         dogsList.apply {
             layoutManager = LinearLayoutManager(context)
